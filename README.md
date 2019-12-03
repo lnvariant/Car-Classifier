@@ -6,10 +6,11 @@
 ## Introduction
 This project is based on the architecture described in the Systematic Car Classification System (SCCS) paper.
 
->1. SCCS - [Systematic Car Classification System (SCCS)](Systematic%20Car%20Classification%20System%20(SCCS).pdf)
+>1. [Systematic Car Classification System (SCCS)](Systematic%20Car%20Classification%20System%20(SCCS).pdf)
 
 ## Requirements
-  - "models" folder at the root of this project (downloaded from link in data.txt)
+  - "data" folder (downloaded from link in data.txt)
+  - "models" folder (downloaded from link in data.txt)
   - "yolo" folder with the weights (downloaded from link in data.txt)
   - python
   - numpy
