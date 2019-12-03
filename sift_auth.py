@@ -6,7 +6,7 @@ import os
 import random
 import numpy as np
 
-from yolo import get_bounding_images
+from yolo import get_bounding_images, get_bounding_images_p
 
 
 def draw_matches(img1, keypoints1, img2, keypoints2, plot_title=""):
@@ -105,11 +105,14 @@ def get_make_model_images_path(imgs_path, make, model):
     :param model: the model of the image (including year)
     :return:
     """
-    make_dict = scipy.io.loadmat("data\\misc\\make_model_name.mat")
+    make_dict = scipy.io.loadmat("make_model_name.mat")
 
     make_id = -1
     model_id = -1
     just_model = ""  # The model without the year
+
+    make = make.replace("BMW", "BWM")
+    model = model.replace("BMW", "BWM")
 
     # Find the index of the predicted make
     for i in range(1, make_dict["make_names"].shape[0]):
@@ -157,22 +160,28 @@ def sift_authenticator(img, predicted_make, predicted_model):
 
     # Loop through all images in directory
     for f in os.listdir(imgs_path):
-        img_path = imgs_path + "/" + f
+        try:
+            img_path = imgs_path + "/" + f
 
-        # Get just the cars from the image
-        bounding_imgs = get_bounding_images(img_path)
+            # Get just the cars from the image
+            bounding_imgs = get_bounding_images_p(img_path)
 
-        # For each car found, run SIFT
-        for comparison_img in bounding_imgs:
-            if img is not None and comparison_img is not None:
-                keypts1, keypts2, good_keypts1, good_keypts2 = sift_keypt_extractor(img, comparison_img,
-                                                                                    visualize=False)
+            # For each car found, run SIFT
+            for comparison_img in bounding_imgs:
+                if img is not None and comparison_img is not None:
+                    keypts1, keypts2, good_keypts1, good_keypts2 = sift_keypt_extractor(img, comparison_img,
+                                                                                        visualize=False)
 
-                # Make sure we receive valid keypoints
-                if keypts1 is not None and good_keypts1 is not None:
-                    num_of_keypts = min(len(keypts1), len(keypts2))
-                    num_of_good_keypts = min(len(good_keypts1), len(good_keypts2))
-                    accuracies.append(num_of_good_keypts / num_of_keypts)
+                    # Make sure we receive valid keypoints
+                    if keypts1 is not None and good_keypts1 is not None:
+                        num_of_keypts = min(len(keypts1), len(keypts2))
+                        num_of_good_keypts = min(len(good_keypts1), len(good_keypts2))
+                        accuracies.append(num_of_good_keypts / num_of_keypts)
+        except:
+            print()
+
+    if len(accuracies) == 0:
+        return 0
 
     total_accuracy = (np.sum(accuracies) / len(accuracies)) * 100
     print(total_accuracy)

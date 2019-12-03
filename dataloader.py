@@ -10,7 +10,7 @@ from model import IMG_SHAPE
 
 
 def build_data_frame():
-    make_model = scipy.io.loadmat("data\\misc\\make_model_name.mat")
+    make_model = scipy.io.loadmat("make_model_name.mat")
     white_listed_makes = ['Ferrari', 'Maserati', 'Acura', 'McLaren', 'Mustang', 'Aston Martin', 'TESLA', 'Porsche',
                           'Lamorghini ', 'Benz', 'Audi', 'BWM', 'Bentley', 'Bugatti', 'Jaguar']
     single_make = "BWM"
@@ -113,11 +113,7 @@ def get_generators(images_directory, training_df, validation_df, test_df):
 
 
 
-
-def main():
+if __name__ == "__main__":
     training_df, validation_df = build_data_frame()
     # x_train, y_train, x_valid, y_valid = get_data("", training_df, validation_df)
     print()
-
-
-main()

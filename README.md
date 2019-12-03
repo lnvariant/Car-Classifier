@@ -8,4 +8,20 @@ This project is an implementation for the Systematic Car Classification System (
 
 >1. SCCS - [Systematic Car Classification System (SCCS)]
 
-## Results
+## Usage
+
+Use --help to see usage of main.py:
+```
+$ python main.py --image_path "data/test/bmw_x3_2014.jpg" --actual_label "BMW X3 2014"
+```
+```
+$ python main.py [--help] [--actual_label ACTUAL_LABEL] [--image_path IMAGE_PATH] [--csv_path CSV_PATH]
+
+required arguments:
+  -l, --actual_label            label identifying the image
+
+
+optional arguments:
+  -i, --image_path              path to the image
+  -c, --csv_path                path to the csv file
+```
