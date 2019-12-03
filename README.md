@@ -22,6 +22,6 @@ required arguments:
 
 
 optional arguments:
-  -i, --image_path              path to the image
-  -c, --csv_path                path to the csv file
+  -i, --image_path              path to an input image
+  -c, --csv_path                path to a .csv file containing data with the columns (filename, label)
 ```

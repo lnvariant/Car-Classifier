@@ -167,9 +167,10 @@ if __name__ == "__main__":
     print("\nWARNING: SCCS only supports [BMW] model classifications at the moment.\n")
 
     ap = argparse.ArgumentParser()
-    ap.add_argument("-i", "--image_path", required=False, help="A path to an input image")
-    ap.add_argument("-c", "--csv_path", required=False, help="A path to a .csv file containing a data")
-    ap.add_argument("-l", "--actual_label", required=False, help="A path to the input image")
+    ap.add_argument("-l", "--actual_label", required=False, help="label identifying the image")
+    ap.add_argument("-i", "--image_path", required=False, help="path to an input image")
+    ap.add_argument("-c", "--csv_path", required=False, help="path to a .csv file containing data with the columns "
+                                                             "(filename, label)")
     args = vars(ap.parse_args())
 
     image_path = args["image_path"]
