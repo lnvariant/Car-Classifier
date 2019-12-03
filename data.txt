@@ -1,0 +1,16 @@
+https://drive.google.com/open?id=1x41_kKf-57kW44W-Z87N0PBY18OBirEg
+
+Download the "Car Classifier" folder and place its contents (both files and directories) into the root of this
+project.
+
+The root of the project should contain the following directories, subdirectories, and files:
+
+    ---- data
+        ...
+    ---- models
+        ---- bmw_model.h5
+        ---- make_model.h5
+        ...
+    ---- yolo
+        ---- yolov3.cfg
+        ---- yolov3.weights
