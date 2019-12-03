@@ -4,9 +4,19 @@
 [![OpenCV](https://img.shields.io/badge/OpenCV-3.x%7C4.x-orange.svg)]()
 
 ## Introduction
-This project is an implementation for the Systematic Car Classification System (SCCS) as described by the paper.
+This project is based on the architecture described in the Systematic Car Classification System (SCCS) paper.
 
->1. SCCS - [Systematic Car Classification System (SCCS)]
+>1. SCCS - [Systematic Car Classification System (SCCS)]("Systematic Car Classification System (SCCS).pdf")
+
+## Requirements
+  - "models" folder at the root of this project (download from link in data.txt)
+  - python
+  - numpy
+  - tensorflow
+  - keras
+  - pandas
+  - opencv
+  - scipy
 
 ## Usage
 
